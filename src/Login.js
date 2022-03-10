@@ -28,12 +28,12 @@ const Login = () => {
 
 
         if (data.ok){
-            window.localStorage.setItem('id', dato.user_id);
-            window.localStorage.setItem('token', dato.token);
+            localStorage.setItem('id', dato.user_id);
+            localStorage.setItem('token', dato.token);
 
-            window.location = "/profile"
+            window.location = "/profile";
         }else{
-            alert("Error de inicio de sesion")
+            alert("Error de inicio de sesion");
         }
 
     }
@@ -46,34 +46,34 @@ const Login = () => {
 
     const switchShown = () => setShown(!shown);
 
-
     return(
 
+        <div className="loginformu">
+        <div className="login">
+            <h2>Login</h2>
+        </div>
+        <div className="input-group mb-3">
+            <input type="text" className="loginin" name="username" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange}/>
+        </div>
 
-            <div>
-                    <div className="login">
-                        <h1>Login</h1>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                        </div>
-                        <input type="text" className="form-control input_login" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1"/>
-                    </div>
-                    
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="radio"  aria-label="Radio button for following text input" onClick={switchShown}  className={"login_butonpass"}/>
-                            </div>
-                        </div>
-                        <input type={shown ? 'text' : 'password'} class="form-control" aria-label="Text input with radio button" name="password" placeholder="Contraseña" onChange={handleChange}  />
-
-                    </div>
-
-                    <button type="submit" onClick = {()=> pot(datos)} class="btn btn-light">Iniciar sesion</button>
-                    <Link  className="input_new"  to="/register"><button type="submit"  class="btn btn-info">Regitsarte</button></Link>
+        
+        <div className="input-group">
+        <div className="input-group-prepend">
+            
+        </div>
+            <input type={shown ? 'text' : 'password'} className="loginin" aria-label="Text input with radio button" name="password" placeholder="Contraseña" onChange={handleChange}/>
+            <div className="input-group-text">
+                <input type="radio"  aria-label="Radio button for following text input" onClick={switchShown}  className={"login_butonpass"}/>
+                <label htmlFor="exampleDropdownFormPassword1"> Mostrar Constraseña</label>
                 </div>
+        </div>
+        <br></br><br></br>
+        <button type="submit"  onClick = {()=> pot(datos)} className="botoncito">Iniciar sesion</button>
+  
+        <Link className="input_new"  to="/register"><button type="submit" className="botoncito2" >Regitsarte</button></Link>
+        
+        </div>
+            
     )
 }
 

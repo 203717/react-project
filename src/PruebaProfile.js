@@ -3,27 +3,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css"
 import {Card} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import bob from "./Bob.jpg";
-import axios from 'axios';
+import bob from "./Bob.jpg"
 
-const urlGet = "http://localhost:8000/api/v1/profile/"+localStorage.getItem('id');
+const urlGet = "http://localhost:8000/api/v1/profile/"+window.localStorage.getItem('id')
 
-const urlPut = "http://localhost:8000/api/v1/profile/"+localStorage.getItem('id');
+const urlPut = "http://localhost:8000/api/v1/profile/"+window.localStorage.getItem('id')
 
-const Profile = () => {
+const Login = () => {
     const [datos,setDatos] = useState({})
     const [form,setForm] = useState(null)
     const [edit,setEdit] = useState(true)
     useEffect(() => {
         get()
     }, []);
-    
+
+
     const get = async ()  => {
-        console.log(window.localStorage.getItem('token'));
         const dato = await fetch(urlGet, {
             method: 'GET',
             headers: {
-                'Authorization': 'token '+localStorage.getItem('token')
+                'Authorization': 'token '+window.localStorage.getItem('token')
             }
         })
 
@@ -31,7 +30,7 @@ const Profile = () => {
         setDatos(data)
     }
 
-    const pot = () => {
+    const post1 = () => {
         const newF = new FormData();
 
         if(form == null){
@@ -100,36 +99,47 @@ const Profile = () => {
 
 
     return(
-        <div className="loginformu">
+        <div>
+
+            <Card style={{ width: '55rem' , height:' 30rem', top:'40px' }} className="container card_profile">
+
+                <Link className={"log_out_link"} to={"/login"} onClick={()=> delLocalData()}>Log out</Link>
 
 
-                <Link className={"linki"} to={"/"} onClick={()=> delLocalData()}>Back</Link>
-
-
-                <div className="imagen12">
+                <Card.Body style={{ height: '2em' }}>
                     <img src={datos.img_profile != null ? datos.img_profile : bob}/>
-                </div>
+                </Card.Body>
 
                 <div className="fil">
-                    <input type="file" name="file" id="file" className="botoncito" onChange={handleChangeF}  />
+                    <input type="file" name="file" id="file" className="inputfile" onChange={handleChangeF}  />
+                    <label htmlFor="file">Cambiar foto</label>
 
                 </div>
-                <br></br>
-                    <input  type= "text"  name="username" className="loginin" placeholder="Username" onChange={handleChange} value={datos.username} disabled={edit} />
-                    <input  type= "text"  name="first_name" className="loginin" placeholder="First Name" onChange={handleChange} value={datos.first_name} disabled={edit} />
-                    <input  type= "text"  name="last_name" className="loginin" placeholder="Last Name" onChange={handleChange} value={datos.last_name} disabled={edit} />
-                    <input  type= "text"  name="email"  className="loginin" placeholder="Email" onChange={handleChange} value={datos.email} disabled={edit} />
-                <br></br>
-                <div className="edit">
-                    <button  className="botoncito2" onClick={()=> setEdit(!edit)}>Editar datos</button>
-                    <button onClick={()=> pot()} className="botoncito">Actualizar</button>
+
+                <div className="user_last">
+                    <label className="label_profile">Username</label>
+                    <input  type= "text"  name="username" onChange={handleChange} value={datos.username} disabled={edit} />
+                    <label className="label_profile">Last name</label>
+                    <input  type= "text"  name="last_name" onChange={handleChange} value={datos.last_name} disabled={edit} />
+                </div>
+
+                <div className="first_ema" >
+                    <label className="label_profile2" >First name</label>
+                    <input  type= "text"  name="first_name" onChange={handleChange} value={datos.first_name} disabled={edit} />
+                    <label className="label_profile3">Email</label>
+                    <input  type= "text"  name="email" onChange={handleChange} value={datos.email} disabled={edit} />
+                </div>
+
+                <div className="edit"    >
+                    <button onClick={()=> setEdit(!edit)}>Editar datos</button>
+                    <button onClick={()=> post1()} className="actuali">Actualizar</button>
                 </div>
 
 
-            
+            </Card>
         </div>
 
     )
 }
 
-export default Profile;
+export default Login;

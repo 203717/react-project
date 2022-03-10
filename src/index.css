@@ -1,5 +1,5 @@
 body {
-  background-color: #333000;
+  background-color: #333333;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -11,4 +11,108 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.loginformu{
+  font-family: 'Open Sans Condensed', arial, sans;
+	width: 500px;
+	padding: 30px;
+	background: #FFFFFF;
+  border-radius: 5px;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+.loginin{
+  border-radius: 5px;
+  box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+
+}
+
+.botoncito{
+  -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+  border-radius: 7px;
+}
+
+.botoncito2{
+  border-radius: 7px;
+  -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2cbb4b;
+	border: 1px solid #27a067;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.loginin:hover{
+  color: #FFFFFF;
+
+	background-color:#5764648e;
+}
+
+.botoncito:hover{
+  background-color: #176868;
+	border: 1px solid #124747;
+}
+.botoncito2:hover{
+  background-color: #134d1f;
+	border: 1px solid #134d32;
+}
+
+h2{
+  color:#2CBBBB ;
+  border-color: black;
+}
+
+.linki{
+  color:#fff;
+  border-radius: 5px;
+  background-color: #2CBBBB;
+  border: 3px solid #208686;
+  font-family:impact;
+}
+
+.linki:hover{
+  color:#616161;
+  border-radius: 5px;
+  background-color: #3bffff;
+  border: 3px solid #35dbdb;
+  font-family:impact;
+}
+
+.imagen12{
+  border-radius: 50%;
 }
