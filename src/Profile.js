@@ -23,7 +23,7 @@ const Profile = () => {
         const dato = await fetch(urlGet, {
             method: 'GET',
             headers: {
-                'Authorization': 'token '+localStorage.getItem('token')
+                'Authorization': 'Token '+localStorage.getItem('token')
             }
         })
 
@@ -57,7 +57,7 @@ const Profile = () => {
             method: 'PUT',
             body: data,
             headers: {
-                'Authorization': 'token '+window.localStorage.getItem('token'),
+                'Authorization': 'Token '+window.localStorage.getItem('Token'),
             }
         })
         const dato = await datas.json();
@@ -115,13 +115,12 @@ const Profile = () => {
 
                 </div>
                 <br></br>
-                    <input  type= "text"  name="username" className="loginin" placeholder="Username" onChange={handleChange} value={datos.username} disabled={edit} />
-                    <input  type= "text"  name="first_name" className="loginin" placeholder="First Name" onChange={handleChange} value={datos.first_name} disabled={edit} />
-                    <input  type= "text"  name="last_name" className="loginin" placeholder="Last Name" onChange={handleChange} value={datos.last_name} disabled={edit} />
-                    <input  type= "text"  name="email"  className="loginin" placeholder="Email" onChange={handleChange} value={datos.email} disabled={edit} />
+                    <input  type= "text"  name="username" className="loginin" placeholder="Username" onChange={handleChange} value={datos.username}  />
+                    <input  type= "text"  name="first_name" className="loginin" placeholder="First Name" onChange={handleChange} value={datos.first_name}  />
+                    <input  type= "text"  name="last_name" className="loginin" placeholder="Last Name" onChange={handleChange} value={datos.last_name}  />
+                    <input  type= "text"  name="email"  className="loginin" placeholder="Email" onChange={handleChange} value={datos.email}  />
                 <br></br>
                 <div className="edit">
-                    <button  className="botoncito2" onClick={()=> setEdit(!edit)}>Editar datos</button>
                     <button onClick={()=> pot()} className="botoncito">Actualizar</button>
                 </div>
 
