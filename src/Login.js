@@ -1,6 +1,6 @@
 import {useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./index.css"
+import "./index.css";
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 
 const urlPost = "http://localhost:8000/api/v1/login/"
