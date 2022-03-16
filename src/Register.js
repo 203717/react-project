@@ -28,7 +28,6 @@ const Register = () => {
 
         if (data.statusText != "Bad Request"){
             alert("Tabien XD")
-            window.location= "/"
         }else{
             alert("Los datos son incorrectos")
         }
@@ -47,7 +46,7 @@ const Register = () => {
 
         <form class="loginformu">
 
-            <Link className={"linki"}  to={"/"} > Back</Link>
+            <Link className={"linki"}  to={"/login"} > Back</Link>
             <br></br>
             <h2>Registro</h2>
             <div className="dropdown-divider line_register"></div>

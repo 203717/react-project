@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css"
-import {Card} from "react-bootstrap";
+
 import {Link} from "react-router-dom";
 import bob from "./Bob.jpg";
-import axios from 'axios';
+
 
 const urlGet = "http://localhost:8000/api/v1/profile/"+localStorage.getItem('id');
 
@@ -17,13 +17,13 @@ const Profile = () => {
     useEffect(() => {
         get()
     }, []);
-    
+
+
     const get = async ()  => {
-        console.log(window.localStorage.getItem('token'));
         const dato = await fetch(urlGet, {
             method: 'GET',
             headers: {
-                'Authorization': 'Token '+localStorage.getItem('token')
+                'Authorization': 'token '+localStorage.getItem('token')
             }
         })
 
@@ -53,24 +53,28 @@ const Profile = () => {
 
 
     const put = async (data)  => {
+
+
         const datas = await fetch(urlPut,{
             method: 'PUT',
             body: data,
             headers: {
-                'Authorization': 'Token '+window.localStorage.getItem('Token'),
+                'Authorization': 'token '+localStorage.getItem('token'),
             }
         })
+        
         const dato = await datas.json();
-
         if (datas.ok){
             alert("Datos actualizados")
             limpiarInputfile()
             get()
             setEdit(true)
         }else{
-            alert("Error al actualizar")
+            console.log(dato)
+            alert("Error al actuaslizar")
             get()
         }
+
 
     }
 
@@ -103,7 +107,7 @@ const Profile = () => {
         <div className="loginformu">
 
 
-                <Link className={"linki"} to={"/"} onClick={()=> delLocalData()}>Back</Link>
+                <Link className={"linki"} to={"/login"} onClick={()=> delLocalData()}>Back</Link>
 
 
                 <div className="imagen12">
